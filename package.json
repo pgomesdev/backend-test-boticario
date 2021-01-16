@@ -14,8 +14,7 @@
   },
   "engines": {
     "yarn": ">=1.22.5",
-    "node": ">=14.15.4",
-    "docker": ">=19.03.8"
+    "node": ">=14.15.4"
   },
   "scripts": {
     "prebuild": "rimraf dist",
