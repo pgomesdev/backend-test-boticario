@@ -1,4 +1,4 @@
-import { Body, Controller, HttpCode, Post, Request, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, Post, Request, UseGuards } from '@nestjs/common';
 import { PurchasesService } from './purchases.service';
 import { Request as RequestInterface } from 'express';
 import { CreatePurchaseDto } from './dto/create-purchase.dto';
@@ -21,5 +21,11 @@ export class PurchasesController {
     const { _id, code, value, date, cpf, status, cashbackPercentage } = purchase;
 
     return { _id, code, value, date, cpf, status, cashbackPercentage };
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get()
+  async listPurchases(@Request() req: RequestInterface) {
+    return this.purchaseService.listPurchases((req.user as User).cpf);
   }
 }

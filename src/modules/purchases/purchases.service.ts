@@ -31,6 +31,10 @@ export class PurchasesService {
     });
   }
 
+  async listPurchases(userCpf: string): Promise<Purchase[]> {
+    return this.purchaseModel.find({ cpf: userCpf }, { __v: 0 }).lean();
+  }
+
   private getCashbackPercentage(purchaseValue: number) {
     if (purchaseValue <= 1000) return 0.1;
     if (purchaseValue > 1500) return 0.2;
