@@ -38,4 +38,8 @@ export class UsersService {
   async findByEmail(email: string): Promise<User | undefined> {
     return this.userModel.findOne({ email }).lean();
   }
+
+  async findById(id: string): Promise<User | undefined> {
+    return this.userModel.findById(id).lean();
+  }
 }
