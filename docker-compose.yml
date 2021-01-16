@@ -3,6 +3,7 @@ version: '3'
 services:
   api:
     container_name: boticario-backend-test
+    command: yarn start:dev
     build: .
     env_file: .env
     ports:
