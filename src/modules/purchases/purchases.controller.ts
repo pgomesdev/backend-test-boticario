@@ -18,8 +18,8 @@ export class PurchasesController {
   ) {
     const purchase = await this.purchaseService.createPurchase(createPurchaseDto, (req.user as User).cpf);
 
-    const { _id, code, value, date, cpf, status } = purchase;
+    const { _id, code, value, date, cpf, status, cashbackPercentage } = purchase;
 
-    return { _id, code, value, date, cpf, status };
+    return { _id, code, value, date, cpf, status, cashbackPercentage };
   }
 }

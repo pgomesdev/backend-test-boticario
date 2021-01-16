@@ -22,6 +22,12 @@ export class Purchase extends Document {
 
   @Prop({ type: String, enum: Object.values(PurchaseStatus), required: true })
   status: PurchaseStatus;
+
+  @Prop({ default: 0 })
+  cashbackPercentage: number;
+
+  @Prop({ default: 0 })
+  cashbackValue: number;
 }
 
 export const PurchaseSchema = SchemaFactory.createForClass(Purchase);

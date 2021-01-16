@@ -18,12 +18,23 @@ export class PurchasesService {
       throw new BadRequestException({ error: 'A purchase with code provided already exists.' });
     }
 
+    const cashbackPercentage = this.getCashbackPercentage(value);
+
     return this.purchaseModel.create({
       code,
       value,
       date: new Date(date),
       cpf: userCpf,
       status: whitelistedCpfs.includes(userCpf) ? PurchaseStatus.APPROVED : PurchaseStatus.PENDING,
+      cashbackPercentage,
+      cashbackValue: value * cashbackPercentage,
     });
+  }
+
+  private getCashbackPercentage(purchaseValue: number) {
+    if (purchaseValue <= 1000) return 0.1;
+    if (purchaseValue > 1500) return 0.2;
+
+    return 0.15;
   }
 }
