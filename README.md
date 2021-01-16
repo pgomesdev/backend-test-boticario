@@ -13,6 +13,9 @@
   <a href="https://github.com/pgomesdev/backend-test-boticario/blob/master/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/github/license/pgomesdev/Boticario Backend Test" />
   </a>
+  <a href="http://commitizen.github.io/cz-cli/" target="_blank">
+    <img alt="Commitizen friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" />
+  </a>
   <a href="https://twitter.com/pgomesdev" target="_blank">
     <img alt="Twitter: pgomesdev" src="https://img.shields.io/twitter/follow/pgomesdev.svg?style=social" />
   </a>
