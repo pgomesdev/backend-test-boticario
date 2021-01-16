@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  api:
+    container_name: boticario-backend-test
+    build: .
+    env_file: .env
+    ports:
+      - 9229:9229
+      - 3000:3000
+    volumes:
+      - ./src:/home/app/src:cached
+      - ./package.json:/home/app/package.json:cached
+    depends_on:
+     - mongo
+
+  mongo:
+    image: mongo:4.2
+    ports:
+      - 27017:27017
+    volumes:
+      - ./db/mongo:/data/db:cached
