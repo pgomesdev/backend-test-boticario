@@ -17,6 +17,8 @@ export class AuthService {
   ): Promise<Pick<User, '_id' | 'cpf' | 'name' | 'email'> | null> {
     const user = await this.userService.findByEmail(email);
 
+    if (!user) return null;
+
     const isPasswordValid = await compare(password, user?.password);
 
     if (isPasswordValid) {
